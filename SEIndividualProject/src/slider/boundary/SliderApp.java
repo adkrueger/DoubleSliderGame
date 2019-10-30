@@ -19,6 +19,8 @@ import javax.swing.plaf.ButtonUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 import slider.controller.MoveController;
+import slider.model.Tile;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -31,11 +33,24 @@ public class SliderApp extends JFrame {
 	JButton btnReset;
 	JPanel panel_0, panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, panel_7, panel_8;
 	JLabel label_0, label_1, label_2, label_3, label_4, label_5, label_6, label_7, label_8;
+	Tile tile_00, tile_10, tile_20, tile_01, tile_11, tile_21, tile_02, tile_12, tile_22;
 	
 	/**
 	 * Create the frame.
 	 */
 	public SliderApp() {
+		System.out.println(Color.ORANGE);
+		tile_00 = new Tile(0, 0, Color.ORANGE, Color.BLACK, " ");
+		tile_10 = new Tile(1, 0, Color.LIGHT_GRAY, Color.BLACK, "4");
+		tile_20 = new Tile(2, 0, Color.DARK_GRAY, Color.WHITE, "0");
+		tile_01 = new Tile(0, 1, Color.DARK_GRAY, Color.WHITE, "2");
+		tile_11 = new Tile(1, 1, Color.LIGHT_GRAY, Color.BLACK, "3");
+		tile_21 = new Tile(2, 1, Color.LIGHT_GRAY, Color.BLACK, "4");
+		tile_02 = new Tile(0, 2, Color.DARK_GRAY, Color.WHITE, "3");
+		tile_12 = new Tile(1, 2, Color.DARK_GRAY, Color.WHITE, "4");
+		tile_22 = new Tile(2, 2, Color.LIGHT_GRAY, Color.BLACK, "1");
+
+
 		moveCtr = new JLabel("Moves: 0");
 		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
 		
@@ -57,53 +72,54 @@ public class SliderApp extends JFrame {
 		
 		panel_0 = new JPanel();
 		panel_0.setPreferredSize(new Dimension(200, 200));
-		panel_0.setBackground(Color.ORANGE);
+		panel_0.setBackground(tile_00.getBgColor());
 		panel_0.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_1 = new JPanel();
 		panel_1.setPreferredSize(new Dimension(200, 200));
-		panel_1.setBackground(Color.LIGHT_GRAY);
+		panel_1.setBackground(tile_10.getBgColor());
 		panel_1.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_2 = new JPanel();
 		panel_2.setPreferredSize(new Dimension(200, 200));
-		panel_2.setBackground(Color.DARK_GRAY);
+		panel_2.setBackground(tile_20.getBgColor());
 		panel_2.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_3 = new JPanel();
 		panel_3.setPreferredSize(new Dimension(200, 200));
-		panel_3.setBackground(Color.DARK_GRAY);
+		panel_3.setBackground(tile_01.getBgColor());
 		panel_3.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_4 = new JPanel();
 		panel_4.setPreferredSize(new Dimension(200, 200));
-		panel_4.setBackground(Color.LIGHT_GRAY);
+		panel_4.setBackground(tile_11.getBgColor());
 		panel_4.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_5 = new JPanel();
 		panel_5.setPreferredSize(new Dimension(200, 200));
-		panel_5.setBackground(Color.LIGHT_GRAY);
+		panel_5.setBackground(tile_21.getBgColor());
 		panel_5.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_6 = new JPanel();
 		panel_6.setPreferredSize(new Dimension(200, 200));
-		panel_6.setBackground(Color.DARK_GRAY);
+		panel_6.setBackground(tile_02.getBgColor());
 		panel_6.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_7 = new JPanel();
 		panel_7.setPreferredSize(new Dimension(200, 200));
-		panel_7.setBackground(Color.DARK_GRAY);
+		panel_7.setBackground(tile_12.getBgColor());
 		panel_7.setBorder(new LineBorder(Color.GRAY, 5));
 		
 		panel_8 = new JPanel();
 		panel_8.setPreferredSize(new Dimension(200, 200));
-		panel_8.setBackground(Color.LIGHT_GRAY);
+		panel_8.setBackground(tile_22.getBgColor());
 		panel_8.setBorder(new LineBorder(Color.GRAY, 5));
 		
 				
 		
-		label_0 = new JLabel(" ");
+		label_0 = new JLabel(tile_00.getValue());
 		label_0.setFont(new Font("Calibri", Font.BOLD, 90));
+		label_0.setForeground(tile_00.getFgColor());
 		label_0.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_0 = new GroupLayout(panel_0);
 		gl_panel_0.setHorizontalGroup(
@@ -122,8 +138,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_0.setLayout(gl_panel_0);
 		
-		label_1 = new JLabel("4");
+		label_1 = new JLabel(tile_10.getValue());
 		label_1.setFont(new Font("Calibri", Font.BOLD, 90));
+		label_1.setForeground(tile_10.getFgColor());
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
@@ -142,9 +159,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_1.setLayout(gl_panel_1);
 		
-		label_2 = new JLabel("3");
+		label_2 = new JLabel(tile_20.getValue());
 		label_2.setFont(new Font("Calibri", Font.BOLD, 90));
-		label_2.setForeground(Color.WHITE);
+		label_2.setForeground(tile_20.getFgColor());
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
@@ -163,9 +180,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_2.setLayout(gl_panel_2);
 		
-		label_3 = new JLabel("2");
+		label_3 = new JLabel(tile_01.getValue());
 		label_3.setFont(new Font("Calibri", Font.BOLD, 90));
-		label_3.setForeground(Color.WHITE);
+		label_3.setForeground(tile_01.getFgColor());
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
@@ -184,8 +201,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_3.setLayout(gl_panel_3);
 				
-		label_4 = new JLabel("3");
+		label_4 = new JLabel(tile_11.getValue());
 		label_4.setFont(new Font("Calibri", Font.BOLD, 90));
+		label_4.setForeground(tile_11.getFgColor());
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
@@ -204,8 +222,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_4.setLayout(gl_panel_4);
 		
-		label_5 = new JLabel("4");
+		label_5 = new JLabel(tile_21.getValue());
 		label_5.setFont(new Font("Calibri", Font.BOLD, 90));
+		label_5.setForeground(tile_21.getFgColor());
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
 		gl_panel_5.setHorizontalGroup(
@@ -224,9 +243,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_5.setLayout(gl_panel_5);
 		
-		label_6 = new JLabel("3");
+		label_6 = new JLabel(tile_02.getValue());
 		label_6.setFont(new Font("Calibri", Font.BOLD, 90));
-		label_6.setForeground(Color.WHITE);
+		label_6.setForeground(tile_02.getFgColor());
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_6 = new GroupLayout(panel_6);
 		gl_panel_6.setHorizontalGroup(
@@ -245,9 +264,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_6.setLayout(gl_panel_6);
 		
-		label_7 = new JLabel("4");
+		label_7 = new JLabel(tile_12.getValue());
 		label_7.setFont(new Font("Calibri", Font.BOLD, 90));
-		label_7.setForeground(Color.WHITE);
+		label_7.setForeground(tile_12.getFgColor());
 		label_7.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_7 = new GroupLayout(panel_7);
 		gl_panel_7.setHorizontalGroup(
@@ -266,8 +285,9 @@ public class SliderApp extends JFrame {
 		);
 		panel_7.setLayout(gl_panel_7);
 		
-		label_8 = new JLabel("1");
+		label_8 = new JLabel(tile_22.getValue());
 		label_8.setFont(new Font("Calibri", Font.BOLD, 90));
+		label_8.setForeground(tile_22.getFgColor());
 		label_8.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_panel_8 = new GroupLayout(panel_8);
 		gl_panel_8.setHorizontalGroup(
