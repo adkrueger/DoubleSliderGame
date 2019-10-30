@@ -1,11 +1,11 @@
 package slider;
 
-import slider.boundary.SliderApp;
+import slider.boundary.Puzzle;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		SliderApp app = new SliderApp();
+		Puzzle app = new Puzzle();
 
 		app.setVisible(true);
 
