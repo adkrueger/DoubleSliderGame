@@ -9,18 +9,29 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import slider.controller.BoardController;
+import slider.model.Model;
+import slider.model.Tile;
+
 public class Puzzle extends JFrame {
 
 	private JPanel contentPane;
-
+	public BoardController BC;
+	
 	/**
 	 * Create the frame.
 	 */
-	public Puzzle() throws InterruptedException {
+	public Puzzle() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 675, 750);
 		
 		SliderApp SA = new SliderApp(this);
+		BC = new BoardController(this, 
+				new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
+						SA.tile_21, SA.tile_02, SA.tile_12, SA.tile_22}, 
+				new Model[]{SA.panel_0, SA.panel_1, SA.panel_2, SA.panel_3, SA.panel_4, 
+						SA.panel_5, SA.panel_6, SA.panel_7, SA.panel_8},
+				"00");
 		
 		contentPane = new JPanel();
 		contentPane.setPreferredSize(new Dimension(850, 850));

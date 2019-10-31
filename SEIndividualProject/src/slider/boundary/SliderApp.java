@@ -26,21 +26,24 @@ public class SliderApp extends JPanel {
 	Model panel_0, panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, panel_7, panel_8;
 	JLabel label_0, label_1, label_2, label_3, label_4, label_5, label_6, label_7, label_8;
 	Tile tile_00, tile_10, tile_20, tile_01, tile_11, tile_21, tile_02, tile_12, tile_22;
+	Puzzle puzzle;
 	
 	/**
 	 * Create the frame.
 	 */
-	public SliderApp() {
+	public SliderApp(Puzzle puzzle) {
 		
-		tile_00 = new Tile(0, 0, Color.ORANGE, Color.BLACK, " ");
-		tile_10 = new Tile(1, 0, Color.LIGHT_GRAY, Color.BLACK, "4");
-		tile_20 = new Tile(2, 0, Color.DARK_GRAY, Color.WHITE, "3");
-		tile_01 = new Tile(0, 1, Color.DARK_GRAY, Color.WHITE, "2");
-		tile_11 = new Tile(1, 1, Color.LIGHT_GRAY, Color.BLACK, "3");
-		tile_21 = new Tile(2, 1, Color.LIGHT_GRAY, Color.BLACK, "4");
-		tile_02 = new Tile(0, 2, Color.DARK_GRAY, Color.WHITE, "3");
-		tile_12 = new Tile(1, 2, Color.DARK_GRAY, Color.WHITE, "4");
-		tile_22 = new Tile(2, 2, Color.LIGHT_GRAY, Color.BLACK, "1");
+		this.puzzle = puzzle;
+		
+		tile_00 = new Tile("00", Color.ORANGE, Color.BLACK, true, " ");
+		tile_10 = new Tile("10", Color.LIGHT_GRAY, Color.BLACK, false, "4");
+		tile_20 = new Tile("20", Color.DARK_GRAY, Color.WHITE, false, "3");
+		tile_01 = new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "2");
+		tile_11 = new Tile("11", Color.LIGHT_GRAY, Color.BLACK, false, "3");
+		tile_21 = new Tile("21", Color.LIGHT_GRAY, Color.BLACK, false, "4");
+		tile_02 = new Tile("02", Color.DARK_GRAY, Color.WHITE, false, "3");
+		tile_12 = new Tile("12", Color.DARK_GRAY, Color.WHITE, false, "4");
+		tile_22 = new Tile("22", Color.LIGHT_GRAY, Color.BLACK, false, "1");
 
 		label_0 = new JLabel(tile_00.getValue());
 		label_1 = new JLabel(tile_10.getValue());
@@ -79,55 +82,55 @@ public class SliderApp extends JPanel {
 		panel_0.setPreferredSize(new Dimension(200, 200));
 		panel_0.setBackground(tile_00.getBgColor());
 		panel_0.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_0 = new MoveController(panel_0, tile_00);
+		MoveController MC_0 = new MoveController(panel_0, tile_00, puzzle);
 		panel_0.addMouseListener(MC_0);
 		
 		panel_1.setPreferredSize(new Dimension(200, 200));
 		panel_1.setBackground(tile_10.getBgColor());
 		panel_1.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_1 = new MoveController(panel_1, tile_10);
+		MoveController MC_1 = new MoveController(panel_1, tile_10, puzzle);
 		panel_1.addMouseListener(MC_1);
 		
 		panel_2.setPreferredSize(new Dimension(200, 200));
 		panel_2.setBackground(tile_20.getBgColor());
 		panel_2.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_2 = new MoveController(panel_2, tile_20);
+		MoveController MC_2 = new MoveController(panel_2, tile_20, puzzle);
 		panel_2.addMouseListener(MC_2);
 		
 		panel_3.setPreferredSize(new Dimension(200, 200));
 		panel_3.setBackground(tile_01.getBgColor());
 		panel_3.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_3 = new MoveController(panel_3, tile_01);
+		MoveController MC_3 = new MoveController(panel_3, tile_01, puzzle);
 		panel_3.addMouseListener(MC_3);
 		
 		panel_4.setPreferredSize(new Dimension(200, 200));
 		panel_4.setBackground(tile_11.getBgColor());
 		panel_4.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_4 = new MoveController(panel_4, tile_11);
+		MoveController MC_4 = new MoveController(panel_4, tile_11, puzzle);
 		panel_4.addMouseListener(MC_4);
 		
 		panel_5.setPreferredSize(new Dimension(200, 200));
 		panel_5.setBackground(tile_21.getBgColor());
 		panel_5.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_5 = new MoveController(panel_5, tile_21);
+		MoveController MC_5 = new MoveController(panel_5, tile_21, puzzle);
 		panel_5.addMouseListener(MC_5);
 		
 		panel_6.setPreferredSize(new Dimension(200, 200));
 		panel_6.setBackground(tile_02.getBgColor());
 		panel_6.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_6 = new MoveController(panel_6, tile_02);
+		MoveController MC_6 = new MoveController(panel_6, tile_02, puzzle);
 		panel_6.addMouseListener(MC_6);
 		
 		panel_7.setPreferredSize(new Dimension(200, 200));
 		panel_7.setBackground(tile_12.getBgColor());
 		panel_7.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_7 = new MoveController(panel_7, tile_12);
+		MoveController MC_7 = new MoveController(panel_7, tile_12, puzzle);
 		panel_7.addMouseListener(MC_7);
 		
 		panel_8.setPreferredSize(new Dimension(200, 200));
 		panel_8.setBackground(tile_22.getBgColor());
 		panel_8.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_8 = new MoveController(panel_8, tile_22);
+		MoveController MC_8 = new MoveController(panel_8, tile_22, puzzle);
 		panel_8.addMouseListener(MC_8);
 				
 		label_0.setFont(new Font("Calibri", Font.BOLD, 90));

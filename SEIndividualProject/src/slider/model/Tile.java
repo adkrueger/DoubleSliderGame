@@ -3,22 +3,26 @@ package slider.model;
 import java.awt.Color;
 
 public class Tile {
-	
-	final int xCoord;
-	final int yCoord;
-	
+
+	final String xyID;
+
 	Color bgColor;
 	Color fgColor;
+	boolean isEmpty;
 	String value;	
 	
-	public Tile(int xCoord, int yCoord, Color bgColor, Color fgColor, String value) {
-		this.xCoord = xCoord;
-		this.yCoord = yCoord;
+	public Tile(String xyID, Color bgColor, Color fgColor, boolean isEmpty, String value) {
+		this.xyID = xyID;
 		this.bgColor = bgColor;
 		this.fgColor = fgColor;
+		this.isEmpty = isEmpty;
 		this.value = value;
 	}
 
+	public String getxyID() {
+		return xyID;
+	}
+	
 	public Color getBgColor() {
 		return bgColor;
 	}
@@ -41,14 +45,6 @@ public class Tile {
 
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public int getyCoord() {
-		return yCoord;
-	}
-
-	public int getxCoord() {
-		return xCoord;
 	}
 	
 }

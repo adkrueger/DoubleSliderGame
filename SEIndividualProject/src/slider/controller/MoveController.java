@@ -5,20 +5,23 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
+import slider.boundary.Puzzle;
 import slider.model.Model;
 import slider.model.Tile;
 
 public class MoveController extends MouseAdapter {
 
 	int moves = 0;
+	
 	Model panel;
 	Tile tile;
+	Puzzle puzzle;
 	
 	
-	public MoveController(Model panel, Tile tile) {
+	public MoveController(Model panel, Tile tile, Puzzle puzzle) {	// TODO: need to pass a list of all tiles with new entity class object
 		this.panel = panel;
 		this.tile = tile;
+		this.puzzle = puzzle;
 	}
 	
 	public int incrMoves() { return ++moves; }
@@ -34,23 +37,11 @@ public class MoveController extends MouseAdapter {
 	public void mousePressed(MouseEvent me) {
 		// Check if inside existing location
 		Point p = me.getPoint();
-		String currVal;
 		
-		tile.setBgColor(Color.GREEN);
-
-		tile.setFgColor(Color.CYAN);
-
-		if(tile.getValue().equals(" ")) { 
-			currVal = tile.getValue();
+		String emptyID = puzzle.BC.findEmptyAdjacent(tile.getxyID());
+		
+		if(emptyID != null) {
+			puzzle.BC.flip(tile, puzzle.BC.getTileByID(emptyID));
 		}
-		else {
-			currVal = Integer.toString(5 - Integer.valueOf(tile.getValue()));
-		}
-		tile.setValue(currVal);
-		// MAKE SURE TO REFRESH DISPLAY
-		panel.redraw();
-		//TODO: Create another controller that checks entire board (all tiles)
-		// this will also repaint the whole board, i.e. moves as well
-
 	}
 }
