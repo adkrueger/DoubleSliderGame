@@ -9,8 +9,7 @@ public class Tile {
 	
 	Color bgColor;
 	Color fgColor;
-	String value;
-	
+	String value;	
 	
 	public Tile(int xCoord, int yCoord, Color bgColor, Color fgColor, String value) {
 		this.xCoord = xCoord;
@@ -19,7 +18,7 @@ public class Tile {
 		this.fgColor = fgColor;
 		this.value = value;
 	}
-	
+
 	public Color getBgColor() {
 		return bgColor;
 	}

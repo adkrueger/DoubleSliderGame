@@ -1,28 +1,13 @@
 package slider.boundary;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.ButtonUI;
-import javax.swing.plaf.basic.BasicButtonUI;
-
-import slider.controller.MoveController;
-import slider.model.Tile;
 
 public class Puzzle extends JFrame {
 
@@ -95,10 +80,8 @@ public class Puzzle extends JFrame {
 					.addGap(51))
 		);
 		
-		contentPane.setLayout(gl_contentPane);	
-//		SA.tile_00 = new Tile(0, 0, Color.GREEN, Color.ORANGE, "5");
-//		TimeUnit.SECONDS.sleep(3);
-//		repaint();
+		contentPane.setLayout(gl_contentPane);
+		
 	}
 
 }

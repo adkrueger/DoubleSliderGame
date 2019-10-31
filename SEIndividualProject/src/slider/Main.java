@@ -1,7 +1,5 @@
 package slider;
 
-import java.util.concurrent.TimeUnit;
-
 import slider.boundary.Puzzle;
 
 public class Main {
