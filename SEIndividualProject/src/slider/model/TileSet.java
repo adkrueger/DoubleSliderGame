@@ -36,6 +36,10 @@ public class TileSet {
 		
 	}
 	
+	public void setEmptyTileID(String emptyTileID) {
+		this.emptyTileID = emptyTileID;
+	}
+	
 	public String getEmptyTileID() {
 		return emptyTileID;
 	}

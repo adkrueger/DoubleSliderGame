@@ -10,6 +10,8 @@ import slider.model.TileSet;
 
 public class BoardController {
 
+	int moves = 0;
+	
 	Puzzle puzzle;
 	Tile[] tiles = new Tile[10];
 	Model[] models = new Model[10];
@@ -44,6 +46,12 @@ public class BoardController {
 		return tileSet.getTileMap().get(tileID);
 	}
 	
+	public int resetMoves() {
+		moves = 0;
+		return moves;
+	}
+	
+	public int getMoves() { return moves; }
 	
 	public void flip(Tile srcTile, Tile destTile) {
 		
@@ -66,6 +74,15 @@ public class BoardController {
 		}
 		
 		destTile.setValue(currVal);
+		
+		srcTile.setBgColor(Color.ORANGE);
+		srcTile.setValue(" ");
+		
+		tileSet.setEmptyTileID(srcTile.getxyID());
+		tileSet.getModelByTile(srcTile).redraw();
+		tileSet.getModelByTile(destTile).redraw();
+
+		puzzle.moveCtr.setText("Moves: " + ++moves);
 		
 	}
 	

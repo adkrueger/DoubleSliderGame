@@ -10,8 +10,6 @@ import slider.model.Model;
 import slider.model.Tile;
 
 public class MoveController extends MouseAdapter {
-
-	int moves = 0;
 	
 	Model panel;
 	Tile tile;
@@ -23,15 +21,6 @@ public class MoveController extends MouseAdapter {
 		this.tile = tile;
 		this.puzzle = puzzle;
 	}
-	
-	public int incrMoves() { return ++moves; }
-	
-	public int resetMoves() {
-		moves = 0;
-		return moves;
-	}
-	
-	public int getMoves() { return moves; }
 	
 	@Override
 	public void mousePressed(MouseEvent me) {

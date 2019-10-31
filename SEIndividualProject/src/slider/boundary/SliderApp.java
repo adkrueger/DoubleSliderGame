@@ -21,8 +21,6 @@ import javax.swing.SwingConstants;
 
 public class SliderApp extends JPanel {
 
-	JLabel moveCtr, msgLabel;
-	JButton btnReset;
 	Model panel_0, panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, panel_7, panel_8;
 	JLabel label_0, label_1, label_2, label_3, label_4, label_5, label_6, label_7, label_8;
 	Tile tile_00, tile_10, tile_20, tile_01, tile_11, tile_21, tile_02, tile_12, tile_22;
@@ -64,20 +62,6 @@ public class SliderApp extends JPanel {
 		panel_6 = new Model(tile_02, label_6);
 		panel_7 = new Model(tile_12, label_7);
 		panel_8 = new Model(tile_22, label_8);
-
-		moveCtr = new JLabel("Moves: 0");
-		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
-		
-		msgLabel = new JLabel(" ");
-		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
-		
-		btnReset = new JButton("Reset");
-		btnReset.setBorder(new LineBorder(Color.BLACK, 3));
-		btnReset.setFont(new Font("Calibri", Font.BOLD, 30));
-		btnReset.setUI((ButtonUI) BasicButtonUI.createUI(btnReset));
-		btnReset.setBackground(Color.WHITE);
-		btnReset.setPreferredSize(new Dimension(200, 40));
-		btnReset.setMinimumSize(new Dimension(200, 40));
 
 		panel_0.setPreferredSize(new Dimension(200, 200));
 		panel_0.setBackground(tile_00.getBgColor());
