@@ -20,7 +20,7 @@ public class Puzzle extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 675, 750);
 		
-		SliderApp SA = new SliderApp();
+		SliderApp SA = new SliderApp(this);
 		
 		contentPane = new JPanel();
 		contentPane.setPreferredSize(new Dimension(850, 850));
