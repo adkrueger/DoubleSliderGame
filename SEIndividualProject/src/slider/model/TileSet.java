@@ -1,5 +1,7 @@
 package slider.model;
 
+import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +16,13 @@ public class TileSet {
 	public TileSet(Tile[] tiles, Model[] models, String emptyTileID) {
 		
 		for(int i = 0; i < tiles.length; i++) {
+			System.out.println("putting " + tiles[i].getxyID());
 			tileMap.put(tiles[i].getxyID(), tiles[i]);
 			modelMap.put(tiles[i], models[i]);
+		}
+
+		for(Tile t : getTileMap().values()) {
+			System.out.println(t.getxyID());
 		}
 		this.emptyTileID = emptyTileID;
 		initAdjacents();
@@ -33,6 +40,24 @@ public class TileSet {
 		adjacents.put("02", new String[]{"01", "12"});
 		adjacents.put("12", new String[]{"11", "02", "22"});
 		adjacents.put("22", new String[]{"21", "12"});
+		
+	}
+	
+	public ArrayList<Tile> getWinningFormat() {
+		
+		ArrayList<Tile> winningFormat = new ArrayList<>();
+		
+		winningFormat.add(0, new Tile("00", Color.LIGHT_GRAY, Color.BLACK, false, "1"));
+		winningFormat.add(1, new Tile("10", Color.LIGHT_GRAY, Color.BLACK, false, "2"));
+		winningFormat.add(2, new Tile("20", Color.LIGHT_GRAY, Color.BLACK, false, "3"));
+		winningFormat.add(3, new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "4"));
+		winningFormat.add(4, new Tile("11", Color.ORANGE, Color.WHITE, false, " "));
+		winningFormat.add(5, new Tile("21", Color.LIGHT_GRAY, Color.BLACK, false, "4"));
+		winningFormat.add(6, new Tile("02", Color.DARK_GRAY, Color.WHITE, false, "3"));
+		winningFormat.add(7, new Tile("12", Color.DARK_GRAY, Color.WHITE, false, "2"));
+		winningFormat.add(8, new Tile("22", Color.DARK_GRAY, Color.WHITE, false, "1"));
+		
+		return winningFormat;
 		
 	}
 	

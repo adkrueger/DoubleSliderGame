@@ -33,15 +33,15 @@ public class SliderApp extends JPanel {
 		
 		this.puzzle = puzzle;
 		
-		tile_00 = new Tile("00", Color.ORANGE, Color.BLACK, true, " ");
-		tile_10 = new Tile("10", Color.LIGHT_GRAY, Color.BLACK, false, "4");
-		tile_20 = new Tile("20", Color.DARK_GRAY, Color.WHITE, false, "3");
+		tile_00 = new Tile("00", Color.LIGHT_GRAY, Color.BLACK, true, "1");
+		tile_10 = new Tile("10", Color.DARK_GRAY, Color.WHITE, false, "2");
+		tile_20 = new Tile("20", Color.ORANGE, Color.BLACK, false, " ");
 		tile_01 = new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "2");
-		tile_11 = new Tile("11", Color.LIGHT_GRAY, Color.BLACK, false, "3");
+		tile_11 = new Tile("11", Color.DARK_GRAY, Color.WHITE, false, "3");
 		tile_21 = new Tile("21", Color.LIGHT_GRAY, Color.BLACK, false, "4");
-		tile_02 = new Tile("02", Color.DARK_GRAY, Color.WHITE, false, "3");
-		tile_12 = new Tile("12", Color.DARK_GRAY, Color.WHITE, false, "4");
-		tile_22 = new Tile("22", Color.LIGHT_GRAY, Color.BLACK, false, "1");
+		tile_02 = new Tile("02", Color.LIGHT_GRAY, Color.BLACK, false, "1");
+		tile_12 = new Tile("12", Color.LIGHT_GRAY, Color.BLACK, false, "2");
+		tile_22 = new Tile("22", Color.DARK_GRAY, Color.WHITE, false, "1");
 
 		label_0 = new JLabel(tile_00.getValue());
 		label_1 = new JLabel(tile_10.getValue());

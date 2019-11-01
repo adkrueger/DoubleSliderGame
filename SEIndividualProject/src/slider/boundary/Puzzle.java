@@ -28,7 +28,7 @@ public class Puzzle extends JFrame {
 
 	private JPanel contentPane;
 	public BoardController BC;
-	public JLabel moveCtr, msgLabel;
+	private JLabel moveCtr, msgLabel;
 	
 	/**
 	 * Create the frame.
@@ -37,13 +37,19 @@ public class Puzzle extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 675, 750);
 		
+		moveCtr = new JLabel("Moves: 0");
+		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
+		
+		msgLabel = new JLabel(" ");
+		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
+		
 		SliderApp SA = new SliderApp(this);
 		BC = new BoardController(this, 
 				new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
 						SA.tile_21, SA.tile_02, SA.tile_12, SA.tile_22}, 
 				new Model[]{SA.panel_0, SA.panel_1, SA.panel_2, SA.panel_3, SA.panel_4, 
 						SA.panel_5, SA.panel_6, SA.panel_7, SA.panel_8},
-				"00");
+				"20", moveCtr, msgLabel);
 		
 		contentPane = new JPanel();
 		contentPane.setPreferredSize(new Dimension(850, 850));
@@ -51,13 +57,6 @@ public class Puzzle extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setForeground(Color.BLACK);
 		setContentPane(contentPane);
-		
-		System.out.println(BC.getMoves());
-		moveCtr = new JLabel("Moves: " + BC.getMoves());
-		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
-		
-		msgLabel = new JLabel(" ");
-		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
 		
 		JButton btnReset = new JButton("Reset");
 		btnReset.setBorder(new LineBorder(Color.BLACK, 3));

@@ -8,19 +8,27 @@ public class Tile {
 
 	Color bgColor;
 	Color fgColor;
-	boolean isEmpty;
+	boolean isLocked;
 	String value;	
 	
-	public Tile(String xyID, Color bgColor, Color fgColor, boolean isEmpty, String value) {
+	public Tile(String xyID, Color bgColor, Color fgColor, boolean isLocked, String value) {
 		this.xyID = xyID;
 		this.bgColor = bgColor;
 		this.fgColor = fgColor;
-		this.isEmpty = isEmpty;
+		this.isLocked = isLocked;
 		this.value = value;
 	}
 
 	public String getxyID() {
 		return xyID;
+	}
+	
+	public void lock() {
+		isLocked = true;
+	}
+	
+	public void unlock() {
+		isLocked = false;
 	}
 	
 	public Color getBgColor() {
@@ -47,4 +55,14 @@ public class Tile {
 		this.value = value;
 	}
 	
+	public boolean equals(Tile t) {
+		System.out.println(xyID + " vs. " + t.getxyID());
+		System.out.println(bgColor + " vs. " + t.getBgColor());
+		System.out.println(fgColor + " vs. " + t.getFgColor());
+		System.out.println(value + " vs. " + t.getValue());
+		return xyID.equals(t.getxyID())
+				&& bgColor.equals(t.getBgColor()) 
+				&& fgColor.equals(t.getFgColor())
+				&& value.equals(t.getValue());
+	}
 }

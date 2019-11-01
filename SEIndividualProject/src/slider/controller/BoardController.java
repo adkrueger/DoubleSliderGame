@@ -1,7 +1,12 @@
 package slider.controller;
 
 import java.awt.Color;
+import java.awt.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JLabel;
 
 import slider.boundary.Puzzle;
 import slider.model.Model;
@@ -13,16 +18,19 @@ public class BoardController {
 	int moves = 0;
 	
 	Puzzle puzzle;
+	JLabel moveCtr, msgLabel;
 	Tile[] tiles = new Tile[10];
 	Model[] models = new Model[10];
 	TileSet tileSet;
 	
-	public BoardController(Puzzle puzzle, Tile[] tiles, Model[] models, String emptyTile) {
+	public BoardController(Puzzle puzzle, Tile[] tiles, Model[] models, String emptyTile, JLabel moveCtr, JLabel msgLabel) {
 		
 		this.puzzle = puzzle;
 		this.tiles = tiles;
 		this.models = models;
 		tileSet = new TileSet(this.tiles, this.models, emptyTile);
+		this.moveCtr = moveCtr;
+		this.msgLabel = msgLabel;
 		
 	}
 	
@@ -76,13 +84,64 @@ public class BoardController {
 		destTile.setValue(currVal);
 		
 		srcTile.setBgColor(Color.ORANGE);
+		srcTile.setFgColor(Color.WHITE);	// set to arbitrary white
 		srcTile.setValue(" ");
 		
 		tileSet.setEmptyTileID(srcTile.getxyID());
 		tileSet.getModelByTile(srcTile).redraw();
 		tileSet.getModelByTile(destTile).redraw();
 
-		puzzle.moveCtr.setText("Moves: " + ++moves);
+		moveCtr.setText("Moves: " + ++moves);
+		
+		checkWinLoss();
+		
+	}
+	
+	private void checkWinLoss() {
+		if(checkLoss()) {
+			System.out.println("LOSER");
+			// TODO: Lock Board		(add a boolean isLocked field to Tile?)
+			// TODO: Prompt Reset	(msgLabel)
+		}
+		else if (checkWin()) {
+			System.out.println("WINNER");
+			// TODO: Lock Board 	(maybe)
+			// TODO: Congratulate Player
+		}
+	}
+	
+	private boolean checkLoss() {
+		
+		int[] amts = new int[4];	// an array to record the number of each value
+		
+		for(Tile t : tileSet.getTileMap().values()) {
+			if(!t.getValue().equals(" ")) {	// if we're not looking at the empty space
+				amts[Integer.valueOf(t.getValue()) - 1]++;
+			}
+		}
+		
+		for(int i : amts) {
+			if(i >= 4) {
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+	
+	private boolean checkWin() {
+		
+		ArrayList<Tile> winningFormat = tileSet.getWinningFormat();
+		Map<String, Tile> tileMap = tileSet.getTileMap();
+		
+		for(Tile t : winningFormat) {
+			if(!tileMap.get(t.getxyID()).equals(t)) {	// if the Tile doesn't match what it should be in the winning format
+				return false;
+			}
+		}
+		
+		return true;
 		
 	}
 	
