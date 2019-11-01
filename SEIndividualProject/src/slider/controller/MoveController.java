@@ -1,7 +1,5 @@
 package slider.controller;
 
-import java.awt.Color;
-import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -25,11 +23,10 @@ public class MoveController extends MouseAdapter {
 	@Override
 	public void mousePressed(MouseEvent me) {
 		// Check if inside existing location
-		Point p = me.getPoint();
-		
+	
 		String emptyID = puzzle.BC.findEmptyAdjacent(tile.getxyID());
 		
-		if(emptyID != null) {
+		if(emptyID != null && !tile.getIsLocked()) {
 			puzzle.BC.flip(tile, puzzle.BC.getTileByID(emptyID));
 		}
 	}

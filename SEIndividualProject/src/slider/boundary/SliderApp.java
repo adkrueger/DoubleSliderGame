@@ -3,13 +3,9 @@ package slider.boundary;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.ButtonUI;
-import javax.swing.plaf.basic.BasicButtonUI;
-
 import slider.controller.MoveController;
 import slider.model.Model;
 import slider.model.Tile;
@@ -21,6 +17,8 @@ import javax.swing.SwingConstants;
 
 public class SliderApp extends JPanel {
 
+	private static final long serialVersionUID = 1L;	// to satisfy warning
+	
 	Model panel_0, panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, panel_7, panel_8;
 	JLabel label_0, label_1, label_2, label_3, label_4, label_5, label_6, label_7, label_8;
 	Tile tile_00, tile_10, tile_20, tile_01, tile_11, tile_21, tile_02, tile_12, tile_22;

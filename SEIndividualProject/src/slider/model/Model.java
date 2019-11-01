@@ -1,11 +1,11 @@
 package slider.model;
 
-import java.awt.Graphics;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Model extends JPanel {
+
+	private static final long serialVersionUID = 1L;	// to satisfy warning
 
 	Tile tile;
 	JLabel label;

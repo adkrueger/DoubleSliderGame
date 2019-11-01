@@ -55,6 +55,10 @@ public class Tile {
 		this.value = value;
 	}
 	
+	public boolean getIsLocked() {
+		return isLocked;
+	}
+	
 	public boolean equals(Tile t) {
 		System.out.println(xyID + " vs. " + t.getxyID());
 		System.out.println(bgColor + " vs. " + t.getBgColor());

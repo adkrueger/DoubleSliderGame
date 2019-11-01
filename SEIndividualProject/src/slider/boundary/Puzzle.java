@@ -3,8 +3,6 @@ package slider.boundary;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -26,6 +24,8 @@ import slider.model.Tile;
 
 public class Puzzle extends JFrame {
 
+	private static final long serialVersionUID = 1L;	// to satisfy warning check
+	
 	private JPanel contentPane;
 	public BoardController BC;
 	private JLabel moveCtr, msgLabel;
