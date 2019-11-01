@@ -69,6 +69,10 @@ public class TileSet {
 		return emptyTileID;
 	}
 	
+	public Map<Tile, Model> getModels() {
+		return modelMap;
+	}
+	
 	public Model getModelByTile(Tile t) {
 		return modelMap.get(t);
 	}

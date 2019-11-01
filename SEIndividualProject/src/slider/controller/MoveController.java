@@ -14,7 +14,7 @@ public class MoveController extends MouseAdapter {
 	Puzzle puzzle;
 	
 	
-	public MoveController(Model panel, Tile tile, Puzzle puzzle) {	// TODO: need to pass a list of all tiles with new entity class object
+	public MoveController(Model panel, Tile tile, Puzzle puzzle) {
 		this.panel = panel;
 		this.tile = tile;
 		this.puzzle = puzzle;

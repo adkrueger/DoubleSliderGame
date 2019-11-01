@@ -60,10 +60,6 @@ public class Tile {
 	}
 	
 	public boolean equals(Tile t) {
-		System.out.println(xyID + " vs. " + t.getxyID());
-		System.out.println(bgColor + " vs. " + t.getBgColor());
-		System.out.println(fgColor + " vs. " + t.getFgColor());
-		System.out.println(value + " vs. " + t.getValue());
 		return xyID.equals(t.getxyID())
 				&& bgColor.equals(t.getBgColor()) 
 				&& fgColor.equals(t.getFgColor())
