@@ -68,7 +68,7 @@ public class Puzzle extends JFrame {
 		btnReset.setMinimumSize(new Dimension(200, 40));
 		btnReset.addMouseListener(new MouseAdapter() {
 	        public void mousePressed(MouseEvent evt) {
-	        	moveCtr.setText("Moves: 0");
+	        	moveCtr.setText("Moves: " + BC.resetMoves());
 	        }
 	    });
 		
