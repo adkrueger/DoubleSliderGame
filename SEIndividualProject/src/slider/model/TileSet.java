@@ -51,13 +51,31 @@ public class TileSet {
 		winningFormat.add(1, new Tile("10", Color.LIGHT_GRAY, Color.BLACK, false, "2"));
 		winningFormat.add(2, new Tile("20", Color.LIGHT_GRAY, Color.BLACK, false, "3"));
 		winningFormat.add(3, new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "4"));
-		winningFormat.add(4, new Tile("11", Color.ORANGE, Color.WHITE, false, " "));
+		winningFormat.add(4, new Tile("11", Color.ORANGE, Color.BLACK, false, " "));
 		winningFormat.add(5, new Tile("21", Color.LIGHT_GRAY, Color.BLACK, false, "4"));
 		winningFormat.add(6, new Tile("02", Color.DARK_GRAY, Color.WHITE, false, "3"));
 		winningFormat.add(7, new Tile("12", Color.DARK_GRAY, Color.WHITE, false, "2"));
 		winningFormat.add(8, new Tile("22", Color.DARK_GRAY, Color.WHITE, false, "1"));
 		
 		return winningFormat;
+		
+	}
+	
+	public Map<String, Tile> getInitFormat() {
+		
+		Map<String, Tile> initFormat = new HashMap<>();
+		
+		initFormat.put("00", new Tile("00", Color.LIGHT_GRAY, Color.BLACK, false, "1"));
+		initFormat.put("10", new Tile("10", Color.DARK_GRAY, Color.WHITE, false, "2"));
+		initFormat.put("20", new Tile("20", Color.ORANGE, Color.BLACK, false, " "));
+		initFormat.put("01", new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "2"));
+		initFormat.put("11", new Tile("11", Color.DARK_GRAY, Color.WHITE, false, "3"));
+		initFormat.put("21", new Tile("21", Color.LIGHT_GRAY, Color.BLACK, false, "4"));
+		initFormat.put("02", new Tile("02", Color.LIGHT_GRAY, Color.BLACK, false, "1"));
+		initFormat.put("12", new Tile("12", Color.LIGHT_GRAY, Color.BLACK, false, "2"));
+		initFormat.put("22", new Tile("22", Color.DARK_GRAY, Color.WHITE, false, "1"));
+		
+		return initFormat;
 		
 	}
 	
@@ -75,6 +93,10 @@ public class TileSet {
 	
 	public Model getModelByTile(Tile t) {
 		return modelMap.get(t);
+	}
+	
+	public Model getModelByString(String s) {
+		return modelMap.get(tileMap.get(s));
 	}
 
 	public Map<String, String[]> getAdjacents() {

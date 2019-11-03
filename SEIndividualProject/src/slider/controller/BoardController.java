@@ -82,7 +82,7 @@ public class BoardController {
 		destTile.setValue(currVal);
 		
 		srcTile.setBgColor(Color.ORANGE);
-		srcTile.setFgColor(Color.WHITE);	// set to arbitrary white
+		srcTile.setFgColor(Color.BLACK);	// set to arbitrary BLACK
 		srcTile.setValue(" ");
 		
 		tileSet.setEmptyTileID(srcTile.getxyID());
@@ -90,21 +90,115 @@ public class BoardController {
 		tileSet.getModelByTile(destTile).redraw();
 
 		moveCtr.setText("Moves: " + ++moves);
+		msgLabel.setText("");		
 		
 		checkWinLoss();
+		
+	}
+	
+	public void resetBoard() {
+		
+		Map<Tile, Model> models = tileSet.getModels();
+		Map<String, Tile> initFormat = tileSet.getInitFormat();
+		
+		
+		for(Tile t : models.keySet()) {
+			String currXY = t.getxyID();
+			t.setBgColor(initFormat.get(currXY).getBgColor());
+			t.setFgColor(initFormat.get(currXY).getFgColor());
+			t.setValue(initFormat.get(currXY).getValue());
+			models.get(t).redraw();
+		}
+		
+		tileSet.setEmptyTileID("20");
+		
+		msgLabel.setText("Board reset!");
+		
+		unlockBoard();
 		
 	}
 	
 	private void checkWinLoss() {
 		if(checkLoss()) {
 			System.out.println("LOSER");
+			msgLabel.setText("Loss! Hit reset.");
+			lockBoard();
 			// TODO: Lock Board		(add a boolean isLocked field to Tile?)
 			// TODO: Prompt Reset	(msgLabel)
 		}
-		else if (checkWin()) {
+		else if(checkWin()) {
 			System.out.println("WINNER");
+			msgLabel.setText("You win!");
+			createCongratulatoryMessage();
+			lockBoard();
 			// TODO: Lock Board 	(maybe)
 			// TODO: Congratulate Player
+		}
+	}
+	
+	private void lockBoard() {
+		
+		for(Tile t : tileSet.getTileMap().values()) {
+//			System.out.println("locking " + t.getxyID());
+			t.lock();
+		}
+		
+	}
+	
+	private void unlockBoard() {
+		
+		for(Tile t : tileSet.getTileMap().values()) {
+//			System.out.println("unlocking " + t.getxyID());
+			t.unlock();
+		}
+		
+	}
+	
+	private void createCongratulatoryMessage() {
+		
+		Map<Tile, Model> models = tileSet.getModels();	
+				
+		for(Tile t : models.keySet()) {
+			switch (t.getxyID()) {
+			case "00":
+				t.setValue("C");
+				models.get(t).redraw();
+				break;
+			case "10":
+				t.setValue("O");
+				models.get(t).redraw();
+				break;
+			case "20":
+				t.setValue("N");
+				models.get(t).redraw();
+				break;
+			case "01":
+				t.setValue("G");
+				models.get(t).redraw();
+				break;
+			case "11":
+				t.setValue("R");
+				models.get(t).redraw();
+				break;
+			case "21":
+				t.setValue("A");
+				models.get(t).redraw();
+				break;
+			case "02":
+				t.setValue("T");
+				models.get(t).redraw();
+				break;
+			case "12":
+				t.setValue("S");
+				models.get(t).redraw();
+				break;
+			case "22":
+				t.setValue("!");
+				models.get(t).redraw();
+				break;
+			default:
+				break;
+			}
 		}
 	}
 	

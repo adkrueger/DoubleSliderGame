@@ -68,6 +68,7 @@ public class Puzzle extends JFrame {
 		btnReset.addMouseListener(new MouseAdapter() {
 	        public void mousePressed(MouseEvent evt) {
 	        	moveCtr.setText("Moves: " + BC.resetMoves());
+	        	BC.resetBoard();
 	        }
 	    });
 		

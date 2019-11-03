@@ -25,7 +25,7 @@ public class MoveController extends MouseAdapter {
 		// Check if inside existing location
 	
 		String emptyID = puzzle.BC.findEmptyAdjacent(tile.getxyID());
-		
+
 		if(emptyID != null && !tile.getIsLocked()) {
 			puzzle.BC.flip(tile, puzzle.BC.getTileByID(emptyID));
 		}

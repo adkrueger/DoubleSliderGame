@@ -23,12 +23,12 @@ public class Tile {
 		return xyID;
 	}
 	
-	public void lock() {
-		isLocked = true;
-	}
-	
 	public void unlock() {
 		isLocked = false;
+	}
+
+	public void lock() {
+		isLocked = true;
 	}
 	
 	public Color getBgColor() {

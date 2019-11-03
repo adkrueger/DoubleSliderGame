@@ -31,7 +31,7 @@ public class SliderApp extends JPanel {
 		
 		this.puzzle = puzzle;
 		
-		tile_00 = new Tile("00", Color.LIGHT_GRAY, Color.BLACK, true, "1");
+		tile_00 = new Tile("00", Color.LIGHT_GRAY, Color.BLACK, false, "1");
 		tile_10 = new Tile("10", Color.DARK_GRAY, Color.WHITE, false, "2");
 		tile_20 = new Tile("20", Color.ORANGE, Color.BLACK, false, " ");
 		tile_01 = new Tile("01", Color.DARK_GRAY, Color.WHITE, false, "2");
