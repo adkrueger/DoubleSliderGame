@@ -49,7 +49,6 @@ public class BoardController {
 	public String findEmptyAdjacent(String currTile) {
 		for(String xyID : tileSet.getAdjacents().get(currTile)) {
 			if(xyID.equals(tileSet.getEmptyTileID())) {
-				System.out.println(xyID);
 				return xyID;
 			}
 		}
@@ -129,14 +128,12 @@ public class BoardController {
 	
 	private void checkWinLoss() {
 		if(checkLoss()) {
-			System.out.println("LOSER");
 			msgLabel.setText("Loss! Hit reset.");
 			lockBoard();
 			// TODO: Lock Board		(add a boolean isLocked field to Tile?)
 			// TODO: Prompt Reset	(msgLabel)
 		}
 		else if(checkWin()) {
-			System.out.println("WINNER");
 			msgLabel.setText("You win!");
 			createCongratulatoryMessage();
 			lockBoard();
@@ -148,7 +145,6 @@ public class BoardController {
 	private void lockBoard() {
 		
 		for(Tile t : tileSet.getTileMap().values()) {
-//			System.out.println("locking " + t.getxyID());
 			t.lock();
 		}
 		
@@ -157,7 +153,6 @@ public class BoardController {
 	private void unlockBoard() {
 		
 		for(Tile t : tileSet.getTileMap().values()) {
-//			System.out.println("unlocking " + t.getxyID());
 			t.unlock();
 		}
 		
@@ -244,6 +239,10 @@ public class BoardController {
 		
 		return true;
 		
+	}
+	
+	public TileSet getTileSet() {
+		return tileSet;
 	}
 	
 }

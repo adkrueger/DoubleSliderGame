@@ -16,14 +16,10 @@ public class TileSet {
 	public TileSet(Tile[] tiles, Model[] models, String emptyTileID) {
 		
 		for(int i = 0; i < tiles.length; i++) {
-			System.out.println("putting " + tiles[i].getxyID());
 			tileMap.put(tiles[i].getxyID(), tiles[i]);
 			modelMap.put(tiles[i], models[i]);
 		}
 
-		for(Tile t : getTileMap().values()) {
-			System.out.println(t.getxyID());
-		}
 		this.emptyTileID = emptyTileID;
 		initAdjacents();
 		
