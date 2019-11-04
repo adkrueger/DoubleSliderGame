@@ -38,6 +38,7 @@ public class Puzzle extends JFrame {
 	 */
 	public Puzzle() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 		setBounds(100, 100, 675, 750);
 		
 		moveCtr = new JLabel("Moves: 0");
