@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 import slider.boundary.Puzzle;
 import slider.model.Model;
+import slider.model.SliderApp;
 import slider.model.Tile;
 import slider.model.TileSet;
 
@@ -21,15 +22,24 @@ public class BoardController {
 	Model[] models = new Model[10];
 	TileSet tileSet;
 	
-	public BoardController(Puzzle puzzle, Tile[] tiles, Model[] models, String emptyTile, JLabel moveCtr, JLabel msgLabel) {
+	public BoardController(Puzzle puzzle) {
 		
 		this.puzzle = puzzle;
+		
+	}
+	
+	public void initVars(Tile[] tiles, Model[] models, String emptyTile, JLabel moveCtr, JLabel msgLabel) {
+
 		this.tiles = tiles;
 		this.models = models;
 		tileSet = new TileSet(this.tiles, this.models, emptyTile);
 		this.moveCtr = moveCtr;
 		this.msgLabel = msgLabel;
 		
+	}
+	
+	public SliderApp getSliderApp() {
+		return new SliderApp();
 	}
 	
 	public String getEmptyID() {
