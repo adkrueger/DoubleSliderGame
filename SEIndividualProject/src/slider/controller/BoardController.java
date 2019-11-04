@@ -101,7 +101,6 @@ public class BoardController {
 		Map<Tile, Model> models = tileSet.getModels();
 		Map<String, Tile> initFormat = tileSet.getInitFormat();
 		
-		
 		for(Tile t : models.keySet()) {
 			String currXY = t.getxyID();
 			t.setBgColor(initFormat.get(currXY).getBgColor());

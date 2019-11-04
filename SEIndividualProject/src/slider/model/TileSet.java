@@ -94,10 +94,6 @@ public class TileSet {
 	public Model getModelByTile(Tile t) {
 		return modelMap.get(t);
 	}
-	
-	public Model getModelByString(String s) {
-		return modelMap.get(tileMap.get(s));
-	}
 
 	public Map<String, String[]> getAdjacents() {
 		return adjacents;
