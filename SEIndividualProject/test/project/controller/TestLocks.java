@@ -26,10 +26,7 @@ public class TestLocks extends TestCase {
 		BC = new BoardController(puzzle);
 		SA = BC.getSliderApp();		
 		moveCtr = new JLabel("Moves: 0");
-		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
-		
 		msgLabel = new JLabel(" ");
-		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
 		BC.initVars(new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
 						SA.tile_21, SA.tile_02, SA.tile_12, SA.tile_22}, 
 				new Model[]{SA.panel_0, SA.panel_1, SA.panel_2, SA.panel_3, SA.panel_4, 

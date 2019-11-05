@@ -1,6 +1,5 @@
 package project.model;
 
-import java.awt.Font;
 import java.util.Map;
 
 import javax.swing.JLabel;
@@ -25,17 +24,7 @@ public class TestInitFormat extends TestCase {
 		
 		puzzle = new Puzzle();
 		BC = new BoardController(puzzle);
-		SA = BC.getSliderApp();		
-		moveCtr = new JLabel("Moves: 0");
-		moveCtr.setFont(new Font("Calibri", Font.BOLD, 30));
-		
-		msgLabel = new JLabel(" ");
-		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
-		BC.initVars(new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
-						SA.tile_21, SA.tile_02, SA.tile_12, SA.tile_22}, 
-				new Model[]{SA.panel_0, SA.panel_1, SA.panel_2, SA.panel_3, SA.panel_4, 
-						SA.panel_5, SA.panel_6, SA.panel_7, SA.panel_8},
-				"20", moveCtr, msgLabel);
+		SA = BC.getSliderApp();				
 		
 	}
 	
@@ -45,6 +34,12 @@ public class TestInitFormat extends TestCase {
 	}
 	
 	public void testInit() {
+		
+		BC.initVars(new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
+				SA.tile_21, SA.tile_02, SA.tile_12, SA.tile_22}, 
+		new Model[]{SA.panel_0, SA.panel_1, SA.panel_2, SA.panel_3, SA.panel_4, 
+				SA.panel_5, SA.panel_6, SA.panel_7, SA.panel_8},
+		"20", moveCtr, msgLabel);
 		
 		Map<String, Tile> initFormat = BC.getTileSet().getInitFormat();
 		
