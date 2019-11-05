@@ -47,6 +47,7 @@ public class BoardController {
 	}
 	
 	public String findEmptyAdjacent(String currTile) {
+		
 		for(String xyID : tileSet.getAdjacents().get(currTile)) {
 			if(xyID.equals(tileSet.getEmptyTileID())) {
 				return xyID;
@@ -71,7 +72,7 @@ public class BoardController {
 	public void flip(Tile srcTile, Tile destTile) {
 		
 		String currVal;
-		
+				
 		if(srcTile.getBgColor().equals(Color.DARK_GRAY)) {	// need to flip background color
 			destTile.setBgColor(Color.LIGHT_GRAY);
 			destTile.setFgColor(Color.BLACK);
@@ -97,7 +98,7 @@ public class BoardController {
 		tileSet.setEmptyTileID(srcTile.getxyID());
 		tileSet.getModelByTile(srcTile).redraw();
 		tileSet.getModelByTile(destTile).redraw();
-
+		
 		moveCtr.setText("Moves: " + ++moves);
 		msgLabel.setText("");		
 		

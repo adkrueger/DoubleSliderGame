@@ -32,6 +32,7 @@ public class Puzzle extends JFrame {
 	private JPanel contentPane;
 	public BoardController BC;
 	private JLabel moveCtr, msgLabel;
+	public MoveController MC_0, MC_1, MC_2, MC_3, MC_4, MC_5, MC_6, MC_7, MC_8;
 	
 	/**
 	 * Create the frame.
@@ -80,55 +81,55 @@ public class Puzzle extends JFrame {
 		SA.panel_0.setPreferredSize(new Dimension(200, 200));
 		SA.panel_0.setBackground(SA.tile_00.getBgColor());
 		SA.panel_0.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_0 = new MoveController(SA.panel_0, SA.tile_00, this);
+		MC_0 = new MoveController(SA.panel_0, SA.tile_00, this);
 		SA.panel_0.addMouseListener(MC_0);
 		
 		SA.panel_1.setPreferredSize(new Dimension(200, 200));
 		SA.panel_1.setBackground(SA.tile_10.getBgColor());
 		SA.panel_1.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_1 = new MoveController(SA.panel_1, SA.tile_10, this);
+		MC_1 = new MoveController(SA.panel_1, SA.tile_10, this);
 		SA.panel_1.addMouseListener(MC_1);
 		
 		SA.panel_2.setPreferredSize(new Dimension(200, 200));
 		SA.panel_2.setBackground(SA.tile_20.getBgColor());
 		SA.panel_2.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_2 = new MoveController(SA.panel_2, SA.tile_20, this);
+		MC_2 = new MoveController(SA.panel_2, SA.tile_20, this);
 		SA.panel_2.addMouseListener(MC_2);
 		
 		SA.panel_3.setPreferredSize(new Dimension(200, 200));
 		SA.panel_3.setBackground(SA.tile_01.getBgColor());
 		SA.panel_3.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_3 = new MoveController(SA.panel_3, SA.tile_01, this);
+		MC_3 = new MoveController(SA.panel_3, SA.tile_01, this);
 		SA.panel_3.addMouseListener(MC_3);
 		
 		SA.panel_4.setPreferredSize(new Dimension(200, 200));
 		SA.panel_4.setBackground(SA.tile_11.getBgColor());
 		SA.panel_4.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_4 = new MoveController(SA.panel_4, SA.tile_11, this);
+		MC_4 = new MoveController(SA.panel_4, SA.tile_11, this);
 		SA.panel_4.addMouseListener(MC_4);
 		
 		SA.panel_5.setPreferredSize(new Dimension(200, 200));
 		SA.panel_5.setBackground(SA.tile_21.getBgColor());
 		SA.panel_5.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_5 = new MoveController(SA.panel_5, SA.tile_21, this);
+		MC_5 = new MoveController(SA.panel_5, SA.tile_21, this);
 		SA.panel_5.addMouseListener(MC_5);
 		
 		SA.panel_6.setPreferredSize(new Dimension(200, 200));
 		SA.panel_6.setBackground(SA.tile_02.getBgColor());
 		SA.panel_6.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_6 = new MoveController(SA.panel_6, SA.tile_02, this);
+		MC_6 = new MoveController(SA.panel_6, SA.tile_02, this);
 		SA.panel_6.addMouseListener(MC_6);
 		
 		SA.panel_7.setPreferredSize(new Dimension(200, 200));
 		SA.panel_7.setBackground(SA.tile_12.getBgColor());
 		SA.panel_7.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_7 = new MoveController(SA.panel_7, SA.tile_12, this);
+		MC_7 = new MoveController(SA.panel_7, SA.tile_12, this);
 		SA.panel_7.addMouseListener(MC_7);
 		
 		SA.panel_8.setPreferredSize(new Dimension(200, 200));
 		SA.panel_8.setBackground(SA.tile_22.getBgColor());
 		SA.panel_8.setBorder(new LineBorder(Color.GRAY, 5));
-		MoveController MC_8 = new MoveController(SA.panel_8, SA.tile_22, this);
+		MC_8 = new MoveController(SA.panel_8, SA.tile_22, this);
 		SA.panel_8.addMouseListener(MC_8);
 				
 		SA.label_0.setFont(new Font("Calibri", Font.BOLD, 90));

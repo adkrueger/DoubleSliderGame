@@ -76,7 +76,10 @@ public class TileSet {
 	}
 	
 	public void setEmptyTileID(String emptyTileID) {
+		System.out.println("this is " + this.emptyTileID);
+		System.out.println("passed in is " + emptyTileID);
 		this.emptyTileID = emptyTileID;
+		System.out.println("this is now " + this.emptyTileID);
 	}
 	
 	public String getEmptyTileID() {
