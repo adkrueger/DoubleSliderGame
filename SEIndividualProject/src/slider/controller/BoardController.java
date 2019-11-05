@@ -131,15 +131,11 @@ public class BoardController {
 		if(checkLoss()) {
 			msgLabel.setText("Loss! Hit reset.");
 			lockBoard();
-			// TODO: Lock Board		(add a boolean isLocked field to Tile?)
-			// TODO: Prompt Reset	(msgLabel)
 		}
 		else if(checkWin()) {
 			msgLabel.setText("You win!");
-			createCongratulatoryMessage();
 			lockBoard();
-			// TODO: Lock Board 	(maybe)
-			// TODO: Congratulate Player
+			createCongratulatoryMessage();
 		}
 	}
 	
@@ -227,7 +223,7 @@ public class BoardController {
 		
 	}
 	
-	private boolean checkWin() {
+	public boolean checkWin() {
 		
 		ArrayList<Tile> winningFormat = tileSet.getWinningFormat();
 		Map<String, Tile> tileMap = tileSet.getTileMap();
