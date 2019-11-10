@@ -48,6 +48,7 @@ public class Puzzle extends JFrame {
 		msgLabel = new JLabel(" ");
 		msgLabel.setFont(new Font("Calibri", Font.BOLD, 30));
 		
+		// initialize our controller and entity
 		BC = new BoardController(this);
 		SliderApp SA = BC.getSliderApp();		
 		BC.initVars(new Tile[]{SA.tile_00, SA.tile_10, SA.tile_20, SA.tile_01, SA.tile_11, 
@@ -77,7 +78,9 @@ public class Puzzle extends JFrame {
 	        }
 	    });
 
-
+		/*
+		 * initialize all tiles with their appropriate colors and values
+		 */
 		SA.panel_0.setPreferredSize(new Dimension(200, 200));
 		SA.panel_0.setBackground(SA.tile_00.getBgColor());
 		SA.panel_0.setBorder(new LineBorder(Color.GRAY, 5));
@@ -131,7 +134,11 @@ public class Puzzle extends JFrame {
 		SA.panel_8.setBorder(new LineBorder(Color.GRAY, 5));
 		MC_8 = new MoveController(SA.panel_8, SA.tile_22, this);
 		SA.panel_8.addMouseListener(MC_8);
-				
+			
+		
+		/*
+		 * set up labels and their layouts/values within tiles
+		 */
 		SA.label_0.setFont(new Font("Calibri", Font.BOLD, 90));
 		SA.label_0.setForeground(SA.tile_00.getFgColor());
 		SA.label_0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -311,6 +318,10 @@ public class Puzzle extends JFrame {
 					.addContainerGap())
 		);
 		SA.panel_8.setLayout(gl_panel_8);
+		
+		/*
+		 * set overall layout and add all tiles and panels
+		 */
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

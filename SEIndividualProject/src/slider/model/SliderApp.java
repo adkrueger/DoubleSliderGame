@@ -13,10 +13,10 @@ public class SliderApp {
 	public Tile tile_00, tile_10, tile_20, tile_01, tile_11, tile_21, tile_02, tile_12, tile_22;
 	
 	/**
-	 * Create the frame.
+	 * Give the initial format of our board, initializing tiles and their corresponding labels and panels
 	 */
 	public SliderApp() {
-				
+		
 		tile_00 = new Tile("00", Color.LIGHT_GRAY, Color.BLACK, false, "1");
 		tile_10 = new Tile("10", Color.DARK_GRAY, Color.WHITE, false, "2");
 		tile_20 = new Tile("20", Color.ORANGE, Color.BLACK, false, " ");

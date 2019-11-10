@@ -22,11 +22,15 @@ public class MoveController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me) {
-		// Check if inside existing location
 	
+		/*
+		 * find the location of the adjacent empty tile;
+		 * if it's not adjacent, emptyID will be null
+		 */
 		String emptyID = puzzle.BC.findEmptyAdjacent(tile.getxyID());
 
-		if(emptyID != null && !tile.getIsLocked()) {
+		
+		if(emptyID != null && !tile.getIsLocked()) {	// only flip if the tile isn't adjacent to the empty tile or locked
 			puzzle.BC.flip(tile, puzzle.BC.getTileByID(emptyID));
 		}
 	}

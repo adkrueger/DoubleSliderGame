@@ -15,13 +15,16 @@ public class TileSet {
 	
 	public TileSet(Tile[] tiles, Model[] models, String emptyTileID) {
 		
-		for(int i = 0; i < tiles.length; i++) {
+		/*
+		 * need to go through and fill in our tileMap and modelMap
+		 */
+		for(int i = 0; i < tiles.length; i++) {	
 			tileMap.put(tiles[i].getxyID(), tiles[i]);
 			modelMap.put(tiles[i], models[i]);
 		}
 
 		this.emptyTileID = emptyTileID;
-		initAdjacents();
+		initAdjacents();	// we know all of our Tiles neighbors, so all we need to do is fill in the list manually
 		
 	}
 	
@@ -38,7 +41,10 @@ public class TileSet {
 		adjacents.put("22", new String[]{"21", "12"});
 		
 	}
-	
+
+	/*
+	 * One set, winning format, so simply create an ArrayList of Tiles to show this
+	 */
 	public ArrayList<Tile> getWinningFormat() {
 		
 		ArrayList<Tile> winningFormat = new ArrayList<>();
@@ -57,6 +63,9 @@ public class TileSet {
 		
 	}
 	
+	/*
+	 * Used for testing purposes, the initial format of the board
+	 */
 	public Map<String, Tile> getInitFormat() {
 		
 		Map<String, Tile> initFormat = new HashMap<>();
@@ -76,10 +85,7 @@ public class TileSet {
 	}
 	
 	public void setEmptyTileID(String emptyTileID) {
-		System.out.println("this is " + this.emptyTileID);
-		System.out.println("passed in is " + emptyTileID);
 		this.emptyTileID = emptyTileID;
-		System.out.println("this is now " + this.emptyTileID);
 	}
 	
 	public String getEmptyTileID() {
@@ -90,6 +96,9 @@ public class TileSet {
 		return modelMap;
 	}
 	
+	/*
+	 * a shortcut so we don't have to get our entire modelMap
+	 */
 	public Model getModelByTile(Tile t) {
 		return modelMap.get(t);
 	}

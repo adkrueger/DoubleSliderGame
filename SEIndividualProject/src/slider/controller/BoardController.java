@@ -32,7 +32,7 @@ public class BoardController {
 
 		this.tiles = tiles;
 		this.models = models;
-		tileSet = new TileSet(this.tiles, this.models, emptyTile);
+		tileSet = new TileSet(this.tiles, this.models, emptyTile); // initialize TileSet
 		this.moveCtr = moveCtr;
 		this.msgLabel = msgLabel;
 		
@@ -82,10 +82,10 @@ public class BoardController {
 			destTile.setFgColor(Color.WHITE);
 		}
 		
-		if(srcTile.getValue().equals(" ")) { 
+		if(srcTile.getValue().equals(" ")) { // if we're looking at the blank tile
 			currVal = srcTile.getValue();
 		}
-		else {
+		else {	// otherwise, "flip" our values
 			currVal = Integer.toString(5 - Integer.valueOf(srcTile.getValue()));
 		}
 		
@@ -94,15 +94,15 @@ public class BoardController {
 		srcTile.setBgColor(Color.ORANGE);
 		srcTile.setFgColor(Color.BLACK);	// set to arbitrary BLACK
 		srcTile.setValue(" ");
-		
+				
 		tileSet.setEmptyTileID(srcTile.getxyID());
 		tileSet.getModelByTile(srcTile).redraw();
 		tileSet.getModelByTile(destTile).redraw();
-		
-		moveCtr.setText("Moves: " + ++moves);
+
+		moveCtr.setText("Moves: " + ++moves);	// update move counter and # of moves
 		msgLabel.setText("");		
 		
-		checkWinLoss();
+		checkWinLoss();		// check whether the board won or lost
 		
 	}
 	
@@ -155,6 +155,9 @@ public class BoardController {
 		
 	}
 	
+	/*
+	 * overwrite tiles with a letter to say congratulations
+	 */
 	private void createCongratulatoryMessage() {
 		
 		Map<Tile, Model> models = tileSet.getModels();	
@@ -208,17 +211,19 @@ public class BoardController {
 		int[] amts = new int[4];	// an array to record the number of each value
 		
 		for(Tile t : tileSet.getTileMap().values()) {
-			if(!t.getValue().equals(" ")) {	// if we're not looking at the empty space
+			// if we're not looking at the empty space, update the corresponding index
+			if(!t.getValue().equals(" ")) {	
 				amts[Integer.valueOf(t.getValue()) - 1]++;
 			}
 		}
 		
-		for(int i : amts) {
+		for(int i : amts) { 	// check whether any number has a count of 4 tiles
 			if(i >= 4) {
 				return true;
 			}
 		}
 		
+		// if no numbers are above 4 total digits
 		return false;
 		
 	}
@@ -228,6 +233,7 @@ public class BoardController {
 		ArrayList<Tile> winningFormat = tileSet.getWinningFormat();
 		Map<String, Tile> tileMap = tileSet.getTileMap();
 		
+		// now that we have the winning format, simply go through and check to see that our board matches the winning board
 		for(Tile t : winningFormat) {
 			if(!tileMap.get(t.getxyID()).equals(t)) {	// if the Tile doesn't match what it should be in the winning format
 				return false;
@@ -238,7 +244,7 @@ public class BoardController {
 		
 	}
 	
-	public TileSet getTileSet() {
+	public TileSet getTileSet() {	// to assist in testing
 		return tileSet;
 	}
 	
